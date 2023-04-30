@@ -17,7 +17,7 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v2.2.4
       with:
-        name: windows-msvc-debug
+        name: yaml-cpp-windows-msvc-debug
         path: Debug/*
       
   windows-msvc-release:
@@ -33,7 +33,7 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v2.2.4
       with:
-        name: windows-msvc-release
+        name: yaml-cpp-windows-msvc-release
         path: Release/*
   
   nuget-package:
@@ -49,12 +49,12 @@ jobs:
         dir
         mkdir Debug
         mkdir Release
-        move windows-msvc-debug\* Debug\
-        move windows-msvc-release\* Release\
+        move yaml-cpp-windows-msvc-debug\* Debug\
+        move yaml-cpp-windows-msvc-release\* Release\
         
     - name: Create NuGet package
       working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: nuget pack zip.nuspec
+      run: nuget pack yaml-cpp.nuspec
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.2.3
