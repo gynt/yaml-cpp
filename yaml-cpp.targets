@@ -40,9 +40,14 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <!-- Linker settings -->
-  <ItemDefinitionGroup Condition="'$(yamlcppType)' == 'static'">
+  <ItemDefinitionGroup Condition="('$(yamlcppType)' == 'static') And ('$(yamlcppConfiguration)' == 'Debug')">
     <Link>
-      <AdditionalDependencies>$(MSBuildThisFileDirectory)lib\$(PlatformName)\$(yamlcppRuntimePlatform)\$(yamlcppConfiguration)\zip.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)lib\$(PlatformName)\$(yamlcppRuntimePlatform)\$(yamlcppConfiguration)\yaml-cppd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(yamlcppType)' == 'static' And ('$(yamlcppConfiguration)' == 'Release')">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)lib\$(PlatformName)\$(yamlcppRuntimePlatform)\$(yamlcppConfiguration)\yaml-cpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
 </Project>
