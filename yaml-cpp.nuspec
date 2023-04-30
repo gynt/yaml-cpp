@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>yaml-cpp</id>
+    <version>0.7.0</version>
+    <title>yaml-cpp</title>
+    <authors>jbeder, gynt</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/jbeder/yaml-cpp/</projectUrl>
+    <repository type="git" url="https://github.com/gynt/yaml-cpp.git"/>
+    <!--<iconUrl>http://icon_url_here_or_delete_this_line/</iconUrl>-->
+    <description>A YAML parser and emitter in C++</description>
+    <!--<releaseNotes>Summary of changes made in this release of the package.</releaseNotes>-->
+    <copyright>Copyright 2023</copyright>
+    <tags>native yaml yaml-cpp</tags>
+  </metadata>
+  <files>
+    <file src="Debug\yaml-cpp.lib" target="build\native\lib\Win32\v143\Debug"/>
+    <file src="Debug\yaml-cpp.pdb" target="build\native\lib\Win32\v143\Debug"/>
+    <file src="Release\yaml-cpp.lib" target="build\native\lib\Win32\v143\Release"/>
+    <file src="yaml-cpp.targets" target="build\native"/>
+    <file src="yaml-cpp-propertiesui.xml" target="build\native"/>
+    <file src="include\yaml-cpp" target="build\native\include"/>
+    <file src="README.md" target="build"/>
+    <file src="README.md" target="build\native\doc"/>
+  </files>
+</package>
