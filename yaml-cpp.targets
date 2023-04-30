@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- additional ui -->
+  <ItemGroup>
+    <PropertyPageSchema Include="$(MSBuildThisFileDirectory)\yaml-cpp-propertiesui.xml" />
+  </ItemGroup>
+  <!-- Fix configuration settings -->
+  <PropertyGroup Condition="'$(yamlcppType)' != 'static'">
+    <yamlcppType>static</yamlcppType>
+  </PropertyGroup>
+  <Choose>
+    <When Condition="$(Configuration.ToLower().Contains('debug'))">
+      <PropertyGroup Condition="'$(yamlcppConfiguration)' != 'Release'">
+        <yamlcppConfiguration>Debug</yamlcppConfiguration>
+      </PropertyGroup>
+    </When>
+    <Otherwise>
+      <PropertyGroup Condition="'$(yamlcppConfiguration)' != 'Debug'">
+        <yamlcppConfiguration>Release</yamlcppConfiguration>
+      </PropertyGroup>
+    </Otherwise>
+  </Choose>
+  <Choose>
+    <When Condition="'$(PlatformToolset)' == 'v143'">
+      <PropertyGroup Condition="'$(yamlcppRuntimePlatform)' == ''">
+        <yamlcppRuntimePlatform>v143</yamlcppRuntimePlatform>
+      </PropertyGroup>
+    </When>
+    <Otherwise>
+      <PropertyGroup Condition="'$(yamlcppRuntimePlatform)' == ''">
+        <yamlcppRuntimePlatform>ERROR</yamlcppRuntimePlatform>
+      </PropertyGroup>
+    </Otherwise>
+  </Choose>
+  <!-- Compiler settings: defines and includes -->
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions>HAS_yamlcpp;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- Linker settings -->
+  <ItemDefinitionGroup Condition="'$(yamlcppType)' == 'static'">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)lib\$(PlatformName)\$(yamlcppRuntimePlatform)\$(yamlcppConfiguration)\zip.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+</Project>
