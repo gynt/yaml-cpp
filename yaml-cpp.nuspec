@@ -16,8 +16,8 @@
     <tags>native yaml yaml-cpp</tags>
   </metadata>
   <files>
-    <file src="Debug\yaml-cpp.lib" target="build\native\lib\Win32\v143\Debug"/>
-    <file src="Debug\yaml-cpp.pdb" target="build\native\lib\Win32\v143\Debug"/>
+    <file src="Debug\yaml-cppd.lib" target="build\native\lib\Win32\v143\Debug"/>
+    <file src="Debug\yaml-cppd.pdb" target="build\native\lib\Win32\v143\Debug"/>
     <file src="Release\yaml-cpp.lib" target="build\native\lib\Win32\v143\Release"/>
     <file src="yaml-cpp.targets" target="build\native"/>
     <file src="yaml-cpp-propertiesui.xml" target="build\native"/>
