@@ -66,6 +66,6 @@ jobs:
     - name: Set up NuGet source
       run: nuget sources add -Source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json -Name github -Username ${{ github.repository_owner }} -Password ${{ github.token }} -StorePasswordInClearText
     - name: Publish NuGet to GitHub registry
-      run: nuget push *.nupkg -Source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json -NoSymbols -ApiKey ${{ github.token }}
+      run: nuget push *.nupkg -Source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json -NoSymbols -ApiKey ${{ secrets.REPO_PACKAGES_SECRET }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}     
