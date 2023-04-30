@@ -21,7 +21,7 @@
     <file src="Release\yaml-cpp.lib" target="build\native\lib\Win32\v143\Release"/>
     <file src="yaml-cpp.targets" target="build\native"/>
     <file src="yaml-cpp-propertiesui.xml" target="build\native"/>
-    <file src="include\yaml-cpp" target="build\native\include"/>
+    <file src="include\**" target="build\native\include"/>
     <file src="README.md" target="build"/>
     <file src="README.md" target="build\native\doc"/>
   </files>
