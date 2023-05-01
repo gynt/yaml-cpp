@@ -14,9 +14,6 @@
     <!--<releaseNotes>Summary of changes made in this release of the package.</releaseNotes>-->
     <copyright>Copyright 2023</copyright>
     <tags>native yaml yaml-cpp</tags>
-    <dependencies>
-      <dependency id="libyaml" version="0.2.5.12" include="native" />
-    </dependencies>
   </metadata>
   <files>
     <file src="Debug\yaml-cppd.lib" target="build\native\lib\Win32\v143\Debug"/>
